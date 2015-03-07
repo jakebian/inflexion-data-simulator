@@ -1,5 +1,7 @@
 # Inflexion - Data Sandbox
 
+![screenshot](https://cloud.githubusercontent.com/assets/5866348/6543576/da9723f8-c4d5-11e4-8229-75644df5d172.png)
+
 This is a in-browser interface for:
 
 - simulating realtime data - data is read from a static source, and new events and new entries are emitted periodically

@@ -1,4 +1,11 @@
-angular.module('sandbox', ['simulated-data-source', 'algorithms'])
+angular.module('sandbox', 
+    [
+        'simulated-data-source',
+        'algorithms',
+        'charts'
+    ]
+)
+
 .directive('sandbox', 
             ['DataSource', 'ErgStats',
     function (DataSource, ErgStats) {
@@ -12,16 +19,21 @@ angular.module('sandbox', ['simulated-data-source', 'algorithms'])
         function link(scope, elem) {
             scope.data = [];
             DataSource.initSimulation({
-                delay: 10,
+                start: 31800,
+                delay: 30,
                 steps: 2000
             });
 
             scope.$on('dataUpdate', function (evt, newEntry, fullDataSet) {
-                scope.data.push(newEntry);
+                insertEntry(newEntry);
                 updateErgStats(newEntry);
                 scope.$digest();
             });
 
+            function insertEntry(newEntry) {
+                scope.data.push(newEntry);
+                scope.data = scope.data.slice(scope.data.length - 50);
+            }
             function updateErgStats(newEntry) {
                 ErgStats.update(newEntry);
                 scope.ergStats = ErgStats.getData();

@@ -1,9 +1,22 @@
-ergStats: 
+<div class="row">
+    <h1 class="col-sm-12 page-header">Inflexion Data Sandbox</h1>
+    <div class="col-sm-6">
+        <div class="inflexion-panel panel">
+            <h2>X-acceleration graph</h2>
+            <line-chart data='data' style="display:block"></line-chart>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="inflexion-panel panel">
+            <h2>Algorithm output</h2>
+            <pre>{{ergStats | json}}</pre>
+        </div>
+        <div class="inflexion-panel panel">
+            <h2>last 50 data points</h2>
+            <pre class="data-raw-display">{{data | json}}</pre>
+        </div>
+    </div>
+</div>
 
-<pre>{{ergStats | json}}</pre>
-
-<br>
-
-
-data: 
-<pre>{{data | json}}</pre>
+<!-- data: 
+<pre>{{data | json}}</pre> -->

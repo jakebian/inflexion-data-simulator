@@ -13,7 +13,7 @@ angular.module('simulated-data-source', [])
                 collection : {},
                 source : {},
                 sourceKeys : [],
-                currentKeyIndex : 0,
+                currentKeyIndex : config.start,
             };
 
             fetchData().then(function (result) {
@@ -29,7 +29,7 @@ angular.module('simulated-data-source', [])
             function delayedUpdate() {
                 $timeout(function () {
                     stepCollection();
-                    if (State.currentKeyIndex < config.steps) {
+                    if (State.currentKeyIndex < config.start + config.steps) {
                         delayedUpdate();
                     }
                 }, config.delay);

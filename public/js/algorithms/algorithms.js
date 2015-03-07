@@ -1,0 +1,1 @@
+angular.module('algorithms', ['algorithms.erg-stats']);
